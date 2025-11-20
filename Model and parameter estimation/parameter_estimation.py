@@ -22,6 +22,85 @@ xcov = np.diag(xstd)
 
 bounds = np.exp(np.array([(-5, 6), (-5, 3), (-5, 3)]))
 
+def estimate_1env(W, L, nr_trials, nr_blocks, data):
+    """
+    estimates the model parameters of the data
+    for an experiment with one environment
+    using leave-one-out method where one round is left out
+    for cross validation
+    
+    1 estimation is made, using the entire dataset
+    one value of l, beta and tau
+            
+    then use the median of the estimations as the final result
+    and the quartile deviation as a measurement of variance
+    
+    Parameters
+    ----------
+    W : int
+        width of the grid.
+    L : int
+        length of the grid.
+    nr_trials : int
+        nr of trials per round.
+    nr_blocks : int
+        nr of blocks per experiment.
+    data : dataframe
+        all the participant's data.
+
+    Returns
+    -------
+    the estimated parameters and the NLL belonging to that estimation.
+
+    """
+    
+    #make usefull lists of the data
+    datalast = data.query('trial_nr == {}'.format(nr_trials-1))  #this is a dataframe that only contains the data of the last trial of every grid
+    #lists with info per grid
+    initial_opened = [value for value in datalast.initial_opened]
+    
+    l_fit_est_list = [0]*nr_blocks
+    beta_est_list = [0]*nr_blocks
+    tau_est_list = [0]*nr_blocks
+    NLL_list = [0]*nr_blocks
+    
+    for out_index in range(nr_blocks):
+        data_partial = data.query('block_nr != {}'.format(out_index))
+        args = (W, L, nr_trials, initial_opened[:out_index] + initial_opened[out_index+1:],
+                [value for value in data_partial.selected_choice],
+                [value for value in data_partial.reward],
+                [value for value in data_partial.average_reward])
+        
+        res = minimize(fun=wrapper, x0 = np.log(x0), args=args, method='SLSQP', bounds=np.log(np.array(bounds)))
+        (l_fit_est, beta_est, tau_est) = np.exp(res.x)
+        
+        l_fit_est_list[out_index] = l_fit_est
+        beta_est_list[out_index] = beta_est
+        tau_est_list[out_index] = tau_est
+        
+        #cross validation
+        data_partial = data.query('block_nr == {}'.format(out_index))
+        cross_val = NLL(W, L, nr_trials, l_fit_est, beta_est, tau_est, 
+                        [initial_opened[out_index]], 
+                        [value for value in data_partial.selected_choice],
+                        [value for value in data_partial.reward], 
+                        [value for value in data_partial.average_reward])
+        
+        NLL_list[out_index] = cross_val
+        
+    print("for the entire experiment we estimated a median of:")    
+    print(r'l_fit = %.3f +- %.3f, beta = %.3f +- %.3f, tau = %.3f +- %.3f'
+          % (np.median(l_fit_est_list), (np.percentile(l_fit_est_list, 75) - np.percentile(l_fit_est_list, 25))/2, 
+             np.median(beta_est_list), (np.percentile(beta_est_list, 75) - np.percentile(beta_est_list, 25))/2, 
+                  np.median(tau_est_list), (np.percentile(tau_est_list, 75) - np.percentile(tau_est_list, 25))/2 ))
+    print("NLL = %.3f\n" % np.sum(NLL_list))
+    print("\n")
+    resx = (np.median(l_fit_est_list), np.median(beta_est_list), np.median(tau_est_list))
+    resfun = np.sum(NLL_list)
+    
+        
+    return (resx, resfun)
+
 def estimate_2env(W, L, nr_trials, nr_blocks, data):
     """
     estimates the model parameters of the data
