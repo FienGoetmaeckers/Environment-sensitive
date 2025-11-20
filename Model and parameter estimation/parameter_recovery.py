@@ -20,7 +20,7 @@ bounds_lfit = (0.1, 40)
 nr_trials = 30
 nr_blocks = 8
 W = L = 15
-l = 16
+l = 1
 
     
 """
@@ -43,7 +43,7 @@ for block_nr in range(0, nr_blocks):
     observed_bandit = [[] for value in bandit]
         
     '''
-    step 1: one random cells is revealed at the begin of the experiment
+    step 1: one random cells is revealed at the beginning of the experiment
     '''
     tile_number = random.randint(0, W*L-1)
     reward = random.normalvariate(bandit[tile_number], 1)
