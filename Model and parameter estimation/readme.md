@@ -8,7 +8,7 @@ To replicate our findings, you can redo the parameter estimation of one particip
 
 ## Estimating model parameters
 * **parameter_estimation_behavioural.py**  
-    is the main script to estimate the six model parameters of one participant. It reads in the data of the one participant (participant nr p_index, with p_index a real number between 0 and 660 of choice), calls the estimate function from *parameter_estimation.py* and writes the estimated model parameters, the out-of-sample NLL and the AIC as a new line in csv file.
+    is the main script to estimate the six model parameters of one participant. It reads in the data of the one participant (participant nr p_index, with p_index a real number of choice), calls the estimate function from *parameter_estimation.py* and writes the estimated model parameters, the out-of-sample NLL and the AIC as a new line in csv file.
 * **parameter_estimation.py**  
     contains the estimate function, called upon in parameter_estimation_behavioural.py, to estimate the model parameters of one block of data (one participant). The estimate function uses leave-one-(round-)out cross-validation to estimate model parameters iteratively over 15 out of 16 rounds, and cross-validates the estimation on the left-out round to assess model fits.
 
@@ -17,11 +17,21 @@ To replicate our findings, you can redo the parameter estimation of one particip
 * **create_grids.py**  
     used to create the reward distributions used in the behavioural task.
 
+## Meta-learning test rounds
+* **optimal_diff_cell_savedistr.py**
+    identify most diagnostic meta-learning test scenarios
+* **scenarios.py**
+    created in optimal_diff_cell_savedistr.py
+* **create_expectations.py**
+    used to compare with true expectations during the meta-learning test rounds
+  
 ## Parameter recovery
 * **parameter_recovery.py**  
     simulates behavioural data of one agent, for which the model parameters were sampled from parameter values within Tuckey's Fence bounds of our estimates. Then, it estimates the model parameters of the generated data and saves the generated and estimated model parameters as a new line in a csv file.
-* **bandits11_l2.py**  
-    a file with 100 reward distributions, used as example grids for the simulated agent to sample rewards from. These reward distributions are similar to the ones used in the behavioural experiment, both were created using the same algorithms (using the *bivariate(11, 11, 2, np.random.randint(65,86), 5)* function of *create_grids.py*). 
+* **bandits15_l1.py**  
+    a file with 100 rough reward distributions, used as example grids for the simulated agent to sample rewards from. These reward distributions are identical to the rough ones used in the behavioural experiment, both were created using the same algorithms (using the *bivariate(15, 15, 1, np.random.randint(65,86), 5)* function of *create_grids.py*).
+* **bandits15_l283.py**
+   a file with 100 smooth reward distributions, used as example grids for the simulated agent to sample rewards from. These reward distributions are identical to the smooth ones used in the behavioural experiment, both were created using the same algorithms (using the *bivariate(15, 15, 2.83, np.random.randint(65,86), 5)* function of *create_grids.py*).
 
     
 
