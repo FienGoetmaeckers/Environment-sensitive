@@ -23,7 +23,7 @@ L = W = 15
 epsilon = 0.0001
 
 #step 1: read in all the participant's strategies
-os.chdir("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/data/Exp 3")
+os.chdir("../Data/Exp 3")
 df1 = pd.read_csv("M1_EstExp3.csv")
 nr_p = len(df1)
 #and read in all the scenarios (done in the import section)
@@ -67,3 +67,4 @@ data["smooth expectations"] = e_s
 data["rough expectations"] = e_r
 
 #data.to_csv("expectations.csv", index = False)
+
