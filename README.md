@@ -13,7 +13,6 @@ The experiment's code is written in JavaScript and uses the jsPsych framework (h
 Also, if you want to try out the truffle task, you can try out a shortened (and single environment) version [here](https://braemlab.ugent.be/Fien/MinigameNew/Welcome.html).
 
 
-## Analysis
 ### Model and parameter estimation
 Contains all scripts to read in behavioural data and estimate the model parameters per participant. These scripts use Python programming language. We used Python version 3.9.
 
@@ -22,4 +21,4 @@ Contains all scripts to read in behavioural data and estimate the model paramete
 * Analysis_script.R : R script for conducting statistical analyses on behavioural and modelling data, includes code for creation of figures. We used R version 4.4.1. 
 
 ## Data
-Includes all needed data to replicate findings. 
+Includes all necessary anonymized data to replicate the findings. 
