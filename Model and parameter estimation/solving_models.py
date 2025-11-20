@@ -9,73 +9,6 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, WhiteKernel
 
 
-def Learnsolver(bandit, W, L, nr_trials, max_r, min_r, l_fit, beta, tau, localize=False):
-    """
-    agent solves a given bandit
-    while learning using the GP-UCB model
-
-    Parameters
-    bandit :    The bandit, which is a list with the rewards.
-    W :         width of the bandit.
-    L :         length of the bandit.
-    nr_trials : size of the search horizon, number of tiles that can be chosen.
-    twoD:       True for bivariate bandits, False for univariate
-    beta :      strenght of directed exploration
-                0 for PureExploit.
-    tau :       strenght of random exploration, temperature.
-    
-
-    Returns
-    -------
-    total_r: float, average accumulated reward at the end of the round.
-
-    """
-    total_r = 0
-    hidden = np.array([True]*L*W)  
-    observed_bandit = [[] for value in bandit] #a list with for every cell the observed history
-        
-    '''
-    step 1: one random cells is revealed at the begin of the experiment
-    '''
-    tile_number = random.randint(0, (W*L-1))
-    reward = random.normalvariate(bandit[tile_number], 1)
-	    
-    #save that this cell has been opened before and save the history in observed_bandit
-    hidden[tile_number] = False #save that this cell has been opened
-    observed_bandit[tile_number].append(reward)
-    
-
-    for trial_nr in range(0, nr_trials):
-        '''
-        per choice to make, 
-        the first step is to learn from the prior rewards
-        and make predictions about the cells of the grid
-        this is done via Gaussian Process regression
-        '''
-        m, s = GP(observed_bandit, W, L, l_fit, hidden)
-        
-        '''
-        to translate the expectations to a probability to select a cell,
-        we use UCB and a softmax rule
-        '''
-        UCB = [m[i] + beta * s[i] for i in range(0, W*L)]
-        if localize:
-            prior_choice = [(tile_number-(tile_number%W-1))//W, tile_number%W]
-            UCB = localizer(UCB, prior_choice, W, L)
-        P = softmax(UCB, W, L, tau)
-            
-        #the agent will choose from the tiles, for which the probabilites are given by P
-        tile_number = random.choices(np.arange(0, W*L), weights=P)[0]
-        reward = random.normalvariate(bandit[tile_number], 1)
-        total_r += reward
-         
-        #save that this cell has been opened before and save the history in observed_bandit
-        hidden[tile_number] = False #save that this cell has been opened
-        observed_bandit[tile_number].append(reward)
-    
-    return total_r
-
-
 def GP(observed_bandit, W, L, l_fit, hidden, noise=True, epsilon = 0.0001):
     '''
     This function starts from the observations,
@@ -153,4 +86,5 @@ def localizer(UCB, prior_choice, W, L):
     IMD =  [1/(abs(x-prior_choice[0]) + abs(y-prior_choice[1])) if [x,y]!=prior_choice else 1 for [x,y] in cells]
     UCBloc = [IMD[i]*UCB[i] for i in range(W*L)]
     
+
     return UCBloc
