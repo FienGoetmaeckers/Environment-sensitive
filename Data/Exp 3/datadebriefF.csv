@@ -1,0 +1,199 @@
+subjectID,assigned_condition,time_elapsed,rt,type,answer,difference.
+1,0,1856408,24323,debrief,I DIG THERE WHERE THE PATH TO THE HIGHER NUMBERS LEAD,
+1,0,1874422,18009,debrief,i didnt see a diference,NO
+2,3,695327,48345,debrief,"If the first spot was above 60 I stayed around there but if it was below 60 I would scan around for a better spot and then after 5-10 clicks, I would select the highest square I found for the remainder",
+2,3,704601,9271,debrief,I did not notice any difference between them,NO
+3,0,895581,18036,debrief,First i tried corners and then i decided where to go next,
+3,0,924771,29190,debrief,Second forest was harder to guess,DIFF
+4,1,1123031,49261,debrief,"According to where I saw there were more, according to how dark the color was (red).",
+4,1,1155014,31979,debrief,"I didn't really notice any difference between them, so I continued the same way.",NO
+5,0,1130284,32348,debrief,"Some random click in corners, far ares. Then searching for one specific spot with most truffles in it, then farming this spto",
+5,0,1171951,41666,debrief,"I one there was higher truffle count, but i searched in the same way.",DIFF
+6,3,1280298,69559,debrief,"I checked random locations until I found a pretty good spot, and after I checked around it to see if there are better ones. If I found one above seventy I clicked that.",
+6,3,1317748,37447,debrief,I found more truffles in the blue forest. I searched for better spots.,DIFF
+7,3,1415658,65935,debrief,How high the number was on multiple of the squares around and how the map looked.,
+7,3,1458225,42563,debrief,The blue one felt like more truffles and closer to each other,YES
+8,3,1564412,34474,debrief,"the colour of the truffles, if i get a red one i dig close to it",
+8,3,1596428,32014,debrief,"yes i noticed, the green forest had more truffles",DIFF
+9,0,1642465,54937,debrief,i clicked in all corners and used the color denisty of the color pink to determine which area would be more beneficial,
+9,0,1675197,32729,debrief,not really any difference. I wasnt influenced,NO
+10,2,1791488,24449,debrief,Close to a big number or random places until i found a big number,
+10,2,1802027,10536,debrief,Nop,NO
+11,3,1118995,43356,debrief,Followed the shades of pink and chose to settle at the darkest/highest number,
+11,3,1135571,16549,debrief,No influence,NO
+12,1,765704,28774,debrief,"If I found a good one I would dig multiple times in the same spot, however I would try to find this good spot by fanning out an area and if i got a decent number I would look closer.",
+12,1,785228,19522,debrief,I noticed barely any different. Maybe one forest it was slightly harder to find a good number,DIFF
+13,1,1102759,33086,debrief,"I digged around the very red blocks, i clicked around I found the highest truffle point and I re-digged the area",
+13,1,1134970,32209,debrief,I think one of the forests starting point was more guiding but in the other one it was more random so I had to explore more,OTHER
+14,2,1839334,38882,debrief,I searched next to the darker areas and the hightest numbers,
+14,2,1875567,36227,debrief,The different location didn't influence me,NO
+15,3,1754440,154411,debrief,The instructions said that truffles tend to be grouped close to each other. If at the beginning the very first square was a darker colour of red then I clicked around that square to find similar dark red ones. If I found a very good spot (>60) then I clicked on the same square multiple times because it kept returning lots of truffles. The best strategy was to find one really dark red square and keep clicking on it because that one returned the most amount of truffles.,
+15,3,1834333,79890,debrief,The blue forest seemed to have more darker colored squares. In blue forest it was easier to gain more truffles. But my strategy was pretty much similar in both forests. Find one really good spot and keep on clicking because it kept returning truffles.,DIFF
+16,1,1758685,29511,debrief,I randomly checked where I would find the most number of truffles and then dug around that area,
+16,1,1783727,25034,debrief,I did not notice a difference between the two forests,NO
+17,1,2327288,28000,debrief,"I randomly dig, if the number was high, I stayed in that range",
+17,1,2359970,32679,debrief,Yes I did. The second one has low truffles,DIFF
+18,1,2531076,64645,debrief,"Dig around the higher numbers and when there weren't any, I started from the middle and moved towards the corners",
+18,1,2557823,26701,debrief,I did not notice any differences between them,NO
+19,0,2521385,20668,debrief,Closest to the highest number,
+19,0,2560192,38751,debrief,Green forest has more truffles close to each other and brown forest has them scattered,YES
+20,0,2685175,117420,debrief,they were usually closer together and by the number of truffles i found where i dug,
+20,0,2771190,86002,debrief,the truffles were easier to find or spot where they are in one of the forest,DIFF
+21,0,2880752,174980,debrief,"I would first try to figure out where I would dig the most amount, then once I found it, I'd repeatedly dig there and raise my average score.",
+21,0,2907094,26340,debrief,I did not notice any difference.,NO
+22,2,2891813,16895,debrief,guessing,
+22,2,2906575,14758,debrief,location,?
+23,0,2946960,464452,debrief,"The initial position and the relative number of truffles is the starting point of the reasoning. If the number of truffles in the initial position is satisfactory (above average) then is most cases I am satisfied and continue to dig in the area. If instead the number of truffles found in the initial position is lower than average then I look for areas richer in truffles following your instructions, but if in the search I were to lose too many attempts then I would be satisfied and try to at least get close to the average value",
+23,0,3002998,56036,debrief,I didin't notice any difference,NO
+24,1,2637015,84045,debrief,"I selected the each corner first to see which area might have the most truffles around them. The corner with the highest number or darkest block, I started digging around that block.",
+24,1,2793971,156865,debrief,"My strategy worked for the green forest but when i moved onto the blue forest, the blocks/numbers seemed to be scattered differently and far apart. The green forest had a predictable way of how the blocks were situated. I knew if I found the block with the highest number, it's very likely that I will find other high number blocks nearby. However, it wasn't this way for the blue forest.",YES
+25,3,1332996,56228,debrief,"I was 'fishing' to being with to gauge where the clusters would be, which helped to visualise the colour density on the grid, then when found a high yeild box tended to stay there",
+25,3,1348708,15710,debrief,maybe blue high values more clustered/ green more random?,YES
+26,0,3021809,135094,debrief,As i have read the instruction i found out that a lot of truffles tend to appear next to each other. That is the strategy i used,
+26,0,3062377,40550,debrief,I noticed that the dark forest has less truffles than the first one,DIFF
+27,0,2636458,446353,debrief,"First I started from the point I was given, but opted fast for leaving gaps trying to detect the area with the highest numbers as I only had 30 digs per area. This yielded... ok results. Few areas later I started to check all corners in a grid like fashion with 2 to 3 free gaps inbetween each dig if the start dig was below 40 I think. This lead rather quickly to finding most hot spots, but I rarely went above 50 or 55 truffles. I tried a diagonal pattern once I think but it gave similar results and a little bit harder to process so I went back to the grids placing digs roughly 1/4 inwards of the areas corners for each corner. If all 4 digs were below 50 I resumed placing digs half way to the next one. Usually I also placed a dig in the center. Those 9 digs usually resulted in me finding a route to a hot spot, but not always. Once I located the highest yield dig in the area I clicked the hell out of it.",
+27,0,2786392,149932,debrief,I stopped concentrating on the forest pictures after about a handful of areas as I was not able to make out any correlation inbetween shapes in the locations and numbers of truffles. The only thing I recognized was that most hot spots I found trended to be towards the border of the areas.,NO
+28,1,3385999,151463,debrief,I would randomly select a few to see if theres a pattern and then I would follow the pattern and try to see if I can find a good spot and either dig on the same numbers or try to get the pattern further.,
+28,1,3449618,63609,debrief,"The only difference I noticed is the number that would be used, one used alot of big numbers and the other used small numbers.",DIFF
+29,3,742204,31026,debrief,around 55-70 were enough,
+29,3,768308,26101,debrief,didnt notice. didin't influence,NO
+30,0,721034,22965,debrief,How close or far were them to red zones,
+30,0,754520,33485,debrief,"It did not, I just tried to find the red spots and increase the average",NO
+31,1,766053,24992,debrief,Start by scouting around randomly and then once you find a good spot just dig there constantly to get a good average,
+31,1,786910,20856,debrief,The spread in the blue forest felt a lot less concentrated in comparison to the green forest.,YES
+32,1,956257,16987,debrief,Find somewhere with half decent truffle numbers and then stay there.,
+32,1,970403,14143,debrief,Green seemed to be more sparse,DIFF
+33,0,1031635,39042,debrief,if i seen the left size was light pink i would go to the right size to try find a darker pink/red,
+33,0,1044202,12563,debrief,different colours,NO
+34,1,1047925,41222,debrief,"Check random locations until I found one around 50+, then check nearby until I find one around 70 and continue to farm that square",
+34,1,1094805,46878,debrief,"Some forests had a wider area that lots of truffles were found, it changed how far away I check for truffles",YES
+35,3,1117245,52344,debrief,"I digged next to the spots with high number of truffles. If there was a very low amount, i just clicked randomly on the grid until i found one with more than 50. Then i clicked on adjecent ones.",
+35,3,1138608,21360,debrief,"I did not notice difference, it did not influence me at all.",NO
+36,2,1078700,59389,debrief,"I searched with a 3 tile stride until I found a high giving tile, then I kept digging the same one as the chance of finding a better one is very slim",
+36,2,1114790,36087,debrief,"Not really, I used my strategy in both forest and got similiar results",NO
+37,3,1271939,28615,debrief,"Near the big value one , sometime causual decisions",
+37,3,1301538,29598,debrief,"notice the difference, however no chenge in the  way I look",NO
+38,3,1300906,152887,debrief,i dug every corner of the florest and then started to dig around the one that have highest number of truffles,
+38,3,1309078,8171,debrief,no,NO
+39,1,1317808,170561,debrief,"in the beginning, i assumed that everytime you clicked the same spot, the amount of truffles found was highly diminished (like, 72 to 65 to 57), so I assumed it was best not to click on the same location twice. Then I realized that the amount of truffles found was more or less stable, to I tried to find spots with over 55-60 truffles to keep digging on them. I might try to find the highest ""paying"" spot (which I believe is around 80), but if I clicked on more than 6 spots and I found something with 50+ truffles, I would keep clicking on it.",
+39,1,1368288,50478,debrief,"the second forest seemed to have the truffles less clustered together, it was easier to find spots with 40 truffles next to spots with 80",YES
+40,0,1375389,44652,debrief,I guessed the number from seeing other truffles locations,
+40,0,1416805,41413,debrief,I noticed the difference. The color pattern made it easier for me in the second forest.,DIFF
+41,0,1390968,231487,debrief,"I explored with 4-5 equidistant spots at first, and kept going down a vein if I got lucky. I haven't really thought about specific increments between each tile or common patterns relative to the forest in question. I have noticed sometimes the most truffles were on the edges. If I found really red tiles and/or what I thought was the maximum you could get given the circumstances, I would just keep digging the discovered tile or tiles that gave the best average in the cluster.",
+41,0,1419380,28408,debrief,I haven't found any particular difference. Maybe the clutter pattern or increments differed.,NO
+42,3,1455895,63488,debrief,Trying to get darker red squares next to quite darf ones. When I dug at a light red field I went somewhere different. After at latest 10 digs I decided to dig continuously at the highest number,
+42,3,1464435,8537,debrief,no difference,NO
+43,0,1453011,25845,debrief,"If i liked the number i dug around, if I didnt i spread out",
+43,0,1459654,6641,debrief,"not really, no",NO
+44,3,1560377,25083,debrief,I tried to find a cluster and the kept collecting from the same dark red square.,
+44,3,1573044,12662,debrief,No ifluence imo,NO
+45,2,1573133,96981,debrief,I digged next to the big number and where there is dark colour around that number.,
+45,2,1655156,82012,debrief,"yes, there was difference in background of truffle forest.",NO
+46,3,1652809,62022,debrief,First blue forest seemed to have more truffles in a specific corner. For the yellow one I couldn't find a specific part of the grid. For the yellow one I couldn't find a specific part of the grid.,
+46,3,1683595,30785,debrief,"Yes like stated before the blue forest seemed to have more in a corner, but for the yellow one it seemed more random ?",YES
+47,2,1585844,98886,debrief,If the forest was green I would go for areas surrounding a dark block. but in a brown forest I would go straight linevertical and horizontal following the dark block,
+47,2,1638116,52269,debrief,in the green forest the truffles were mostly located in one area while in the brown forest they were more scattered,YES
+48,1,1744643,36948,debrief,i just noticed that the truffles were mostly in the middle,
+48,1,1850220,105557,debrief,"i did not notice the difference between the two, ijust noticed that the truffles were mostly in the middle",NO
+49,3,1844849,14790,debrief,By clicking in a cluster near the larger amount of truffles,
+49,3,1855961,11110,debrief,It didn't influence me.,NO
+50,1,1228252,9291,debrief,by the amount around,
+50,1,1241404,13150,debrief,didnt notice a difference,NO
+51,2,2129833,50110,debrief,i did not use any strategy,
+51,2,2163588,33752,debrief,i noticed the brown forest had more truffles,DIFF
+52,1,2092850,381051,debrief,"When the only uncovered cells indicated few truffles, I selected randomly until finding a dark-colored cell, then chose the ones next to it to uncover as many truffles as possible. When the only uncovered cells showed a dark color and a good number of truffles, I dug up the ones next to it until finding a number of truffles I considered adequate.",
+52,1,2261683,168829,debrief,"I mainly noticed that in the blue forest you could dig up a larger number of truffles, so in most of them I have tried to look for a number of truffles chose to 80.",DIFF
+53,1,2079281,78678,debrief,I clicked every corner to determine which area have the most truffles and then i would click the same location to get accumulate more truffles.,
+53,1,2102970,23665,debrief,i did not notice any difference,NO
+54,0,2248341,29608,debrief,shuffles with high numbers always tend to appear close to themselves,
+54,0,2285059,36711,debrief,Darker areas usually tend to have higher number  of truffles,DIFF
+55,0,1880170,34798,debrief,the outcome surrounding,
+55,0,1941738,61565,debrief,yes the deep onces was more the green part unlike the blue part,DIFF
+56,1,2405551,73116,debrief,"If I did a lot of truffles in a specific area, I sticked around knowing that areas with more truffles are close to each other",
+56,1,2459727,54172,debrief,I think the green one had areas with more truffles,DIFF
+57,3,2202880,75456,debrief,i used the rule where the dark place has more truffles,
+57,3,2222662,19776,debrief,much,?
+58,2,2443007,15313,debrief,Based on the color of the cell i would have clicked,
+58,2,2466726,23714,debrief,I didnt notice the difference to be honest,NO
+59,0,2309140,73776,debrief,i looked at the geographic location and the given truffles and drawn my decision from there,
+59,0,2478952,169768,debrief,"yes one was a flat like land and one had smaller montains and rivers, the more the closer to wet land the more the truffle",OTHER
+60,0,2710399,35247,debrief,trying to find the high number as possible,
+60,0,2842420,132020,debrief,"didnt see the difference, my strategy always the same, trying to farm a lot of truffles",NO
+61,1,2270773,66241,debrief,I did up more around the area with darker colours,
+61,1,2346240,75459,debrief,yes i noticed that there were more truffles in the brown forest.,DIFF
+62,2,2385581,48311,debrief,I randomly collected the truffles,
+62,2,2462479,76893,debrief,Yes I did. I realized the colors of the background were different.,NO
+63,2,2885892,286352,debrief,I realised that the truffles with higher number are close to each other. However I'd click randomly once to see if the numbers are higher or lower. If I see it's lower I check other areas until I see higher numbers in red.,
+63,2,3094916,209013,debrief,"The other forest was a bit tricky, because it seems most area had lower numbers than the other forest. The other forest had most high numbers while the other forest has most low numbers.",DIFF
+64,1,3440056,48783,debrief,I was prospecting around high numbers trying to take the best direction to find as much truffles as i can,
+64,1,3504310,64251,debrief,"yes i saw a difference , i found that it was more difficult to find truffle in the blue area, i was more careful in the blue area expecting less expectable results",YES
+65,2,3531844,15492,debrief,Close to where was the most red then random spots,
+65,2,3549290,17445,debrief,"No, it didn't",NO
+66,2,1558528,52084,debrief,"Find dark red squares, sometimes scout the area, otherwise find the best square averaging the surrounding red squares and keep mining/clicking there.",
+66,2,1577855,19325,debrief,I didn't. I was simply looking for the biggest red number.,NO
+67,1,1615340,102016,debrief,"I checked how big the number next to each field was. If the number was higher than the previous field, I was searching for more fields. If it was lower I decided to go to another direction and check there. I also tried to check the fields randomly, and also diagonal.",
+67,1,1646722,31379,debrief,"I think the numbers were lower in the green forest, otherwise I noticed no difference.",DIFF
+68,0,2943933,100276,debrief,the cell close to average number of truffles,
+68,0,2992939,49003,debrief,no i didnt notice the difference,NO
+69,0,1893379,11283,debrief,The colour of the boxes,
+69,0,1920512,27129,debrief,It did not change my method for searching for truffles,NO
+70,3,3132750,253771,debrief,i focused on the combination o o observation and systematic exploration,
+70,3,3477118,344359,debrief,i noticed some differences between two forests where i colected truffles an these variations significantly influenced my search strategy. in the first forest the terrain was more open with fewer obstacles wich made it easier to navigate and spot potential digging ares,YES
+71,3,2178919,45014,debrief,if there were a lot of truffles in a spot I would choose spots near it.,
+71,3,2209442,30499,debrief,i did not notice a difference,NO
+72,3,999232,54999,debrief,"Pick a spot see if i can get a high number, if i get one i try to find a few high numbers and then dig there",
+72,3,1042636,43402,debrief,There definitely was a difference but I'm not sure how this influenced me on my choices,NO
+73,0,1203838,13910,debrief,Try to find a red spot and dig a lot there,
+73,0,1226469,22623,debrief,"Yes, the yellow one had smaller and lesser red spots",DIFF
+74,2,838024,22460,debrief,once i found a red square i tended to stick by it,
+74,2,861621,23593,debrief,it didnt make much difference in my eyes,NO
+75,1,1219160,38545,debrief,"I randomly clicked around until it was above 50 and then I clicked around that area, and tried to keep the number going up.",
+75,1,1234939,15777,debrief,I didn't notice a difference.,NO
+76,3,1468165,30112,debrief,considered how close to bigger number,
+76,3,1492413,24243,debrief,first one was more gathered second one more randomly,YES
+77,3,1675573,269397,debrief,"I chose locations that were spread out, initially, to locate areas of high peaks (more truffles). I then chose the area with the highest peak out of the initial selections and selected the surrounding squares until I found a higher number. Once I had found the peak (highest number in an area), I selected the peak for the remaining selections, checking the number had not decreased after selecting. The number of truffles on a square did not change much after selecting. In summary, I selected spaced out areas, identified the area with the highest number of truffles, identified the peak, and then selected the highest number until the end of the round.",
+77,3,1739593,64019,debrief,I did not identify any glaring differences. Differences could have included the amount of truffle dense areas and the height of the peaks (amount of truffles in an area.,NO
+78,3,1138358,21035,debrief,I would dig where the most truffles where. Big number where next to big numbers.,
+78,3,1156250,17890,debrief,It had no influence at all.,NO
+79,2,1729199,59787,debrief,I looked at the highest truffle and dug next to it.,
+79,2,1857339,128134,debrief,"The two forest had different colors, and i only dug truffles looking to find where the highest truffle was located.",NO
+80,1,1498435,14160,debrief,looked at how many truffles were in the current area,
+80,1,1513027,14590,debrief,no i didnt notice a difference i used the same stratergy,NO
+81,0,1620362,66445,debrief,I would try to find a large cluster of truffles and click squares around it to see if the concentration would increase. I want to do as few clicks like this as possible and then focus on digging out the highest value square are many times as possible,
+81,0,1836105,215738,debrief,"the yellow green forests tended to have more smaller numbers in the squares, so if I didn't get lucky I would settle for the largest number I had ex a 60+ square. In the blue forests it was easier to find 70+ squares so I would put more clicks into finding higher value squares",DIFF
+82,3,1918589,54154,debrief,"I used the square that was unveiled already, then tried the corners and then the middle to look for high numbers. I used my intuition quite a lot to find higher numbers.",
+82,3,1961386,42787,debrief,"I kinda thought that one forest gave more truffles and hat bigger clusters of higher numbers. I think the blue one had more truffels. At least, it felt like it.",YES
+83,0,1725502,47574,debrief,"I tried to get a wide disperse first and (since I had a limited number of dig attempts), then choose the one that offered the most",
+83,0,1767623,42117,debrief,"It was more difficult finding truffles in the second forest, so I opted for digging in the same square multiple times",DIFF
+84,2,2197765,14418,debrief,based on the number of truffle,
+85,1,2218047,106404,debrief,"I clicked mostly at random until I found a high concentration of truffles, then selected nearby squares. If the revealed number was small, I clicked further away.",
+85,1,2305243,87192,debrief,I honestly didn't notice a difference,NO
+86,2,1138728,22593,debrief,Area that was bold in color,
+86,2,1191847,53116,debrief,"the second forest had less truffles compared to first one , the colors were ligher on the second forest",DIFF
+87,3,1431846,17539,debrief,next to the square with high number of truffles,
+87,3,1444430,12582,debrief,I didnt find any difference,NO
+88,0,2162521,65660,debrief,"i looked at darker areas and when i found one that was high i stayed near by, if i wasn't finding many i clicked more than once on higher numbers i had already found.",
+88,0,2188586,26060,debrief,"not much difference, found process similair",NO
+89,3,2227377,50587,debrief,I followed the closer ones to collect truffles,
+89,3,2282623,55235,debrief,I followed instructions given,NO
+90,0,2546539,110800,debrief,"select on each corner and center, the biggest number is where I would focus checking around it. Once near 10 digs left, click on highest number repeatedly until digs are finished. Exception when dig is 75+, automatically focus on it",
+90,0,2653747,107199,debrief,green had higher average numbers spread out while brown had lower average numbers. This resulted in concentrating digs in a location repeatedly in the brown more than blue,DIFF
+91,1,1481856,27328,debrief,find the darker pink area and stick with it and dig at the highest number,
+91,1,1525482,43620,debrief,"i felt the first forest had more truffles avaialble at a higher number, so once i found a dark pink area i stuck with that one square",DIFF
+92,2,2342951,47461,debrief,The colors of the grid. I was digging at the darker ones.,
+92,2,2456874,113921,debrief,In the green forest truffles were more at dark spots while in the brown forest truffles were less at the dark spots.This made me be keen on the color of the grids.,OTHER
+93,3,1929986,31688,debrief,I chose to dig where the darker squares were located,
+93,3,1948596,18606,debrief,I did not notice a difference,NO
+94,1,2005168,179190,debrief,"various strategies looking at the average truffles found, first searching the immidiate surroundings of average numbers, quickly staying on the first darker red case with higher than average truffles. if the found numbers on the field are low you change the area on the square subdividing the forest in 4 main corners.",
+94,1,2060150,54975,debrief,the blue forest had a lower average so i settled on a decent number earlier,DIFF
+95,2,2358349,41348,debrief,Search for the most concentrated areas then dig circles around them,
+95,2,2381090,22730,debrief,Green Forest had more truffles than yellow,DIFF
+96,2,1866865,80659,debrief,I picked 4 spots around 1 area to gather information on what kind of cluster i was in then followed where the numbers began to rise. If i was in a bad cluster for truffles i would then pick a new area to test.,
+96,2,1930796,63930,debrief,I personally didn't notice much of a difference other than in the first forest there seemed to be more clusters in the middle and the other forest had more on the edges and rims.,OTHER
+97,2,2788854,50730,debrief,By following the pattern of the dark pink color,
+97,2,2805651,16783,debrief,No,NO
+98,1,1604054,87443,debrief,"I chose random spots, knowing max values I would decidde to stay or move and, if I dig in a very good spot I would click in the same place over and over.",
+98,1,1654970,50914,debrief,I did not think about the possibility of changing the strategy depending on the forest so I didn't notice,NO
+99,0,3284322,116874,debrief,I guessed where to did and when I saw the dark color I had to dig close because I will find more,
+99,0,3351786,67461,debrief,yes. I made me did more because I know I can find more there,DIFF
+100,3,2533479,37963,debrief,dug adjacent to high yield digs and then dug on generally far away areas and attempted to find more veins,
