@@ -37,11 +37,11 @@ stars <- function(pvalue){
 
 W = L = 15
 nr_trials = 30
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/data")
+setwd("../Data")
 experiment <- "1"
 setwd(paste("Exp", experiment))
-data1 <- read.csv(file = "data.csv")
-info1 <- read.csv(file = "info.csv")
+data1 <- read.csv(file = "dataF.csv")
+info1 <- read.csv(file = "infoF.csv")
 info1$E <- to_vec(for (i in 1:nrow(info1)) 1)
 data1$E <- to_vec(for (i in 1:nrow(data1)) 1)
 info1$Novclicksp <- info1$Novclicks/(8*30)
@@ -49,8 +49,8 @@ info1$HVclicksp <- info1$HVclicks/(8*30)
 
 experiment <- "2"
 setwd(paste("../Exp", experiment))
-data2 <- read.csv(file = "data.csv")
-info2 <- read.csv(file = "info.csv")
+data2 <- read.csv(file = "dataF.csv")
+info2 <- read.csv(file = "infoF.csv")
 info2$E <- to_vec(for (i in 1:nrow(info2)) 2)
 data2$E <- to_vec(for (i in 1:nrow(data2)) 2)
 info2$Novclicksp <- info2$Novclicks/(16*30)
@@ -58,8 +58,8 @@ info2$HVclicksp <- info2$HVclicks/(16*30)
 
 experiment <- "3"
 setwd(paste("../Exp", experiment))
-data3 <- read.csv(file = "data.csv")
-info3 <- read.csv(file = "info.csv")
+data3 <- read.csv(file = "dataF.csv")
+info3 <- read.csv(file = "infoF.csv")
 info3$E <- to_vec(for (i in 1:nrow(info3)) 3)
 data3$E <- to_vec(for (i in 1:nrow(data3)) 1)
 info3$Novclicksp <- info3$Novclicks/(16*30)
@@ -71,7 +71,6 @@ infoA <- Reduce(function(x, y) merge(x, y, all=TRUE), list(info1,info2,info3))
 ###
 #analysis of behavioral measures
 ###
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/analysis/Merge123")
 aov2 <- aov(dataA$reward ~factor(dataA$context) * factor(dataA$E)) #reward effects depend on Experiment
 summary(aov2)
 aov2 <- aov(infoA$Novclicksp ~factor(infoA$context) * factor(infoA$E)) #
@@ -82,7 +81,6 @@ aov2 <- aov(infoA$av_distance ~factor(infoA$context) * factor(infoA$E))
 summary(aov2)
 aov2 <- aov(infoA$av_distance_prev ~factor(infoA$context) * factor(infoA$E))
 summary(aov2)
-
 
 
 explist <- list("1", "2", "3", "A")
@@ -115,7 +113,6 @@ ggplot(infoA, aes(x = factor(context), y = Novclicksp, fill= context)) +
   geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = "Number of novel clicks")
-ggsave("3Nov(context).png", device = "png", height = 5/0.8, width = 4/0.8)
 
 #HVclicks
 t <- wilcox.test(infoA[infoA$context == 'rough',]$HVclicksp, infoA[infoA$context == 'smooth',]$HVclicksp, alternative = "two.sided", paired = TRUE)
@@ -136,7 +133,6 @@ ggplot(infoA, aes(x = factor(context), y = HVclicksp, fill= context)) +
   geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = "Number of high-value clicks")
-ggsave("3HV(context).png", device = "png", height = 5/0.8, width = 4/0.8)
 
 #distance previous cell
 t <- wilcox.test(infoA[infoA$context == 'rough',]$av_distance_prev, infoA[infoA$context == 'smooth',]$av_distance_prev, alternative = "two.sided", paired = TRUE)
@@ -157,7 +153,6 @@ ggplot(infoA, aes(x = factor(context), y = av_distance_prev, fill= context)) +
   geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = "Distance between consecutive clicks")
-ggsave("3dp(context).png", device = "png", height = 5/0.8, width = 4/0.8)
 
 
 #distance HV cell
@@ -179,12 +174,11 @@ ggplot(infoA, aes(x = factor(context), y = av_distance, fill= context)) +
   geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = "Distance from most nearby high-value cell")
-ggsave("3dHV(context).png", device = "png", height = 5/0.8, width = 4/0.8)
 
 ###
 #Section 4: modelling results
 ###
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/data")
+setwd("..")
 experiment <- "1"
 setwd(paste0("Exp ", experiment))
 #only keep data for which we have an estimate
@@ -734,4 +728,5 @@ ggplot(infotest, aes(x = factor(debrief), y = dlogl)) +
 barplot(prop.table(table(infotest[infotest$debrief %in% c("NO", "DIFF", "YES", "OTHER"),]$debrief)))
 barplot(prop.table(table(infotest[infotest$debrief %in% c("NO", "DIFF", "YES", "OTHER") & infotest$lgroup == "yes",]$debrief)))
 barplot(prop.table(table(infotest[infotest$debrief %in% c("NO", "DIFF", "YES", "OTHER") & infotest$lgroup == "no",]$debrief)))
+
 
