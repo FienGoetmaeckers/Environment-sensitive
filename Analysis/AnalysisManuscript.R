@@ -183,18 +183,18 @@ experiment <- "1"
 setwd(paste0("Exp ", experiment))
 #only keep data for which we have an estimate
 name <- paste0("infoS", experiment)
-infoS1  <- read.csv(paste0(name,".csv"))
+infoS1  <- read.csv(paste0(name,"F.csv"))
 infoS1$E <- to_vec(for (i in 1:nrow(infoS1)) 1) 
   
 experiment <- "2"
 setwd(paste("../Exp", experiment))
 name <- paste0("infoS", experiment)
-infoS2  <- read.csv(paste0(name,".csv"))
+infoS2  <- read.csv(paste0(name,"F.csv"))
 infoS2$E <- to_vec(for (i in 1:nrow(infoS2)) 2)
 experiment <- "3"
 setwd(paste("../Exp", experiment))
 name <- paste0("infoS", experiment)
-infoS3  <- read.csv(paste0(name,".csv"))
+infoS3  <- read.csv(paste0(name,"F.csv"))
 infoS3$E <- to_vec(for (i in 1:nrow(infoS3)) 3)
 
 infoSA <- Reduce(function(x, y) merge(x, y, all=TRUE), list(infoS1,infoS2,infoS3))
@@ -211,7 +211,6 @@ summary(aov2)
 aov2 <- aov(infoSA$t ~factor(infoSA$context) * factor(infoSA$E))
 summary(aov2)
 
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/analysis/Merge123")
 infoS <- infoSA
 infoS$context <- infoS$smoothness
 infoS$context <- factor(infoS$context, levels = c("smooth", "rough"))
@@ -234,8 +233,7 @@ ggplot(infoS, aes(x = factor(context), y = l, fill= context)) +
   #geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE, textsize = 6) + 
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = "Generalization (l)") + scale_y_log10()
-#ylim(-0.6, 2.3)
-ggsave("l(context).png", device = "png", height = 5/0.8, width = 3/0.8)
+
 
 #test if this distribution is a true bimodal
 dip.test(infoS$logl)
@@ -259,8 +257,7 @@ ggplot(infoS, aes(x = factor(context), y = b, fill= context)) +
   #geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE, textsize = 6) + 
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = expression(paste("Uncertainty guided exploration ( ", beta, ")"))) + scale_y_log10()
-#ylim(-0.6, 2.3)
-ggsave("b(context).png", device = "png", height = 5/0.8, width = 3/0.8)
+
 
 t <- wilcox.test(infoS[infoS$context == 'rough',]$logt, infoS[infoS$context == 'smooth',]$logt, alternative = "two.sided", paired = TRUE)
 Z <- qnorm(t$p.value/2)
@@ -281,7 +278,6 @@ ggplot(infoS, aes(x = factor(context), y = t, fill= context)) +
   #geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE, textsize = 6) + 
   geom_point(position = position_jitter(seed = 1, width = .1), alpha = .4, aes(colour = context), show.legend = FALSE) +
   scale_colour_manual(values = c(rgb(46, 76, 78, maxColorValue = 255), rgb(100, 98, 50, maxColorValue = 225))) + labs(x = "Grids", y = expression(paste("Random exploration ( ", tau, ")"))) + scale_y_log10()
-ggsave("t(context).png", device = "png", height = 5/0.8, width = 3/0.8)
 
 
 
@@ -291,8 +287,6 @@ ggsave("t(context).png", device = "png", height = 5/0.8, width = 3/0.8)
 ###
 
 #read in the predicted distributions
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/data")
-setwd(paste("Exp", experiment))
 #sc shows the simulated expectations for all 20 test scenarios 
 sc <- read.csv("scenarios.csv")
 sc <- sc[complete.cases(sc),]
@@ -309,14 +303,12 @@ sc$rough_exp <- rough_exp
 sc$s_mean <- lapply(smooth_exp, function(x) mean(unlist(x), na.rm = TRUE))
 sc$r_mean <- lapply(rough_exp, function(x) mean(unlist(x), na.rm = TRUE))
 
-datatest <- read.csv("datatest.csv")
-datatest <- datatest[datatest$prolificID != "6724e4d61efd0a67d71320de",] #because incomplete data
+datatest <- read.csv("datatestF.csv")
 datatest$double <- ifelse(datatest$grid >= 10, TRUE, FALSE)
-datatest$subjectID <- datatest$prolificID
 datatest$smoothness <- ifelse(datatest$grid < 5 | (datatest$grid >= 10 & datatest$grid < 15), "smooth", "rough")
 datatest$expstrongergen <- ifelse(datatest$grid %in% c(0,2,4,5,7,9,11,14,16,19), "higher", "lower") #refers to whether stronger generalization leads to higher or lower reward expectations
 datatest$coupledwith <- ifelse(datatest$double == TRUE, datatest$grid%%5, NaN)
-datatest <- datatest[order(datatest$prolificID, datatest$coupledwith),] #we order to allow for pairwise comparison 
+datatest <- datatest[order(datatest$subjectID, datatest$coupledwith),] #we order to allow for pairwise comparison 
 datatest$context <- factor(datatest$smoothness, levels = c("smooth", "rough"))
 datatest$order <- ifelse(datatest$assigned_condition < 2, "SR", "RS") 
 
@@ -324,19 +316,18 @@ datatest$order <- ifelse(datatest$assigned_condition < 2, "SR", "RS")
 datatest <- datatest[datatest$reward < 200,] #can be improved 
 
 #create summary file per participant, per environment
-infoS <- read.csv("infoS3.csv")
-infotest <- data.frame(prolificID = unique(datatest$prolificID))
-infotest$order <- to_vec(for (i in 1: nrow(infotest)) datatest[datatest$prolificID == unique(datatest$prolificID)[i],]$order[1])
+infoS <- read.csv("infoS3F.csv")
+infotest <- data.frame(subjectID = unique(datatest$subjectID))
+infotest$order <- to_vec(for (i in 1: nrow(infotest)) datatest[datatest$subjectID == unique(datatest$subjectID)[i],]$order[1])
 infotest <- cbind(infotest, rep(row.names(infotest), each = 2))
-infotest <- infotest[order(infotest$prolificID),]
-infotest <- select(infotest, c("prolificID", "order"))
+infotest <- infotest[order(infotest$subjectID),]
+infotest <- select(infotest, c("subjectID", "order"))
 infotest$smoothness <- to_vec(for (i in 1:nrow(infotest)) if (i%%2) "smooth" else "rough")
-infotest$subjectID <- infotest$prolificID
 infotest$context <- factor(infotest$smoothness, levels = c("smooth", "rough"))
-infotest$difR <- to_vec(for (i in 1:nrow(infotest)) mean(datatest[datatest$prolificID == infotest$prolificID[i] & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "higher",]$reward) - mean(datatest[datatest$prolificID == infotest$prolificID[i] & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "lower",]$reward))
+infotest$difR <- to_vec(for (i in 1:nrow(infotest)) mean(datatest[datatest$subjectID == infotest$subjectID[i] & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "higher",]$reward) - mean(datatest[datatest$subjectID == infotest$subjectID[i] & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "lower",]$reward))
 infotest$ddifR <- to_vec(for (i in 1:nrow(infotest)) infotest[infotest$subjectID == infotest$subjectID[i] & infotest$smoothness == "smooth",]$difR - infotest[infotest$subjectID == infotest$subjectID[i] & infotest$smoothness == "rough",]$difR)
-infotest$difRm <- to_vec(for (i in 1:nrow(infotest)) mean(datatest[datatest$prolificID == infotest$prolificID[i] & datatest$double & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "higher",]$reward) - mean(datatest[datatest$prolificID == infotest$prolificID[i] & datatest$double & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "lower",]$reward))
-infotest$Dmatch <- to_vec(for (i in 1:nrow(infotest)) mean(to_vec(for (j in 0:4) abs(datatest[datatest$prolificID == infotest$prolificID[i] & datatest$double & datatest$coupledwith == j,]$reward[1] - datatest[datatest$prolificID == infotest$prolificID[i] & datatest$double & datatest$coupledwith == j,]$reward[2]))))
+infotest$difRm <- to_vec(for (i in 1:nrow(infotest)) mean(datatest[datatest$subjectID == infotest$subjectID[i] & datatest$double & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "higher",]$reward) - mean(datatest[datatest$subjectID == infotest$subjectID[i] & datatest$double & datatest$smoothness == infotest$smoothness[i] & datatest$expstrongergen == "lower",]$reward))
+infotest$Dmatch <- to_vec(for (i in 1:nrow(infotest)) mean(to_vec(for (j in 0:4) abs(datatest[datatest$subjectID == infotest$subjectID[i] & datatest$double & datatest$coupledwith == j,]$reward[1] - datatest[datatest$subjectID == infotest$subjectID[i] & datatest$double & datatest$coupledwith == j,]$reward[2]))))
 infotest$dlogl <- to_vec(for (i in 1:nrow(infotest)) infoS[infoS$subjectID == infotest$subjectID[i],]$dlogl[1])
 infotest$dlogb <- to_vec(for (i in 1:nrow(infotest)) infoS[infoS$subjectID == infotest$subjectID[i],]$dlogb[1])
 infotest$dlogt <- to_vec(for (i in 1:nrow(infotest)) infoS[infoS$subjectID == infotest$subjectID[i],]$dlogt[1])
@@ -370,15 +361,12 @@ ggplot(infotest, aes(x = factor(context), y = difR, fill= context)) +
 #second: individual model estimations
 ###
 
-#read in the predictions
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/data")
-setwd("Exp 3")
 #sc shows the simulated expectations for all 20 test scenarios 
-exp <- read.csv("expectations.csv")
-datatest <- datatest[datatest$prolificID %in% exp$Participant,]
+exp <- read.csv("expectationsF.csv")
+datatest <- datatest[datatest$subjectID %in% exp$subjectID,]
 #merge this together with datatest
-datatest$s_pred <- to_vec(for (i in 1:nrow(datatest)) exp[exp$Participant == datatest$prolificID[i] & exp$Grid == datatest$grid[i], ]$smooth.expectations)
-datatest$r_pred <- to_vec(for (i in 1:nrow(datatest)) exp[exp$Participant == datatest$prolificID[i] & exp$Grid == datatest$grid[i], ]$rough.expectations)
+datatest$s_pred <- to_vec(for (i in 1:nrow(datatest)) exp[exp$subjectID == datatest$subjectID[i] & exp$Grid == datatest$grid[i], ]$smooth.expectations)
+datatest$r_pred <- to_vec(for (i in 1:nrow(datatest)) exp[exp$subjectID == datatest$subjectID[i] & exp$Grid == datatest$grid[i], ]$rough.expectations)
 #make sure the predictions are all bounded between 0 and 120
 datatest$s_pred <- ifelse(datatest$s_pred < 0, 0, ifelse(datatest$s_pred > 120, 120, datatest$s_pred))
 datatest$r_pred <- ifelse(datatest$r_pred < 0, 0, ifelse(datatest$r_pred > 120, 120, datatest$r_pred))
@@ -477,7 +465,6 @@ ggplot() +
 ###
 ###
 infoS <- infoSA
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/analysis/Merge123")
 t <- wilcox.test(infoS[infoS$context == 'rough',]$dlogl, alternative = "two.sided")
 Z <- qnorm(t$p.value/2)
 print(t$statistic)
@@ -591,7 +578,7 @@ ggplot(infoS, aes(x = dnov, y = performance_av)) + geom_point() + theme_classic(
   annotate(geom = "text", x = 0.2, y = 40, label = paste("r = ", r, ", p < .001"), size = 6) +
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   labs(x = "Adaptation of number of novel clicks", y = "Average reward")
-ggsave("dnovp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 #high value clicks
 cor <- cor.test(infoS[infoS$context == "smooth",]$dhv, infoS[infoS$context == "smooth",]$performance_av)
@@ -602,7 +589,7 @@ ggplot(infoS, aes(x = dhv, y = performance_av)) + geom_point() + theme_classic()
   annotate(geom = "text", x = 0.4, y = 40, label = paste("r = ", r, ", p < .001"), size = 6) +
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   labs(x = "Adaptation of number of high value clicks", y = "Average reward")
-ggsave("dhvp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 #distance previous
 cor <- cor.test(infoS[infoS$context == "smooth",]$dD, infoS[infoS$context == "smooth",]$performance_av)
@@ -613,7 +600,7 @@ ggplot(infoS, aes(x = dD, y = performance_av)) + geom_point() + theme_classic() 
   annotate(geom = "text", x = 0.4, y = 40, label = paste("r = ", r, ", p = ", p), size = 6) +
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   labs(x = "Adaptation of distance from previous click", y = "Average reward")
-ggsave("dDp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 #distance hv
 cor <- cor.test(infoS[infoS$context == "smooth",]$dDhv, infoS[infoS$context == "smooth",]$performance_av)
@@ -624,7 +611,7 @@ ggplot(infoS, aes(x = dDhv, y = performance_av)) + geom_point() + theme_classic(
   annotate(geom = "text", x = 0.4, y = 40, label = paste("r = ", r, ", p < .001"), size = 6) +
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   labs(x = "Adaptation of distance from high value click", y = "Average reward")
-ggsave("dDhvp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 
 #dlogl
@@ -636,7 +623,7 @@ ggplot(infoS, aes(x = dlogl, y = performance_av)) + geom_point() + theme_classic
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   annotate(geom = "text", x = 0.4, y = 40, label = paste("r = ", r, ", p < .001"), size = 6) +
   labs(x = "Adaptation of generalization", y = "Average reward")
-ggsave("dlp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 
 #dlogb
@@ -648,7 +635,7 @@ ggplot(infoS, aes(x = dlogb, y = performance_av)) + geom_point() + theme_classic
   annotate(geom = "text", x = 0.4, y = 40, label = paste("r = ", r, ", p = ", p), size = 6) +
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   labs(x = "Adaptation of uncertainty-guided exploration", y = "Average reward")
-ggsave("dbp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 #dlogt
 cor <- cor.test(infoS[infoS$context == "smooth",]$dlogt, infoS[infoS$context == "smooth",]$performance_av)
@@ -659,7 +646,7 @@ ggplot(infoS, aes(x = dlogt, y = performance_av)) + geom_point() + theme_classic
   annotate(geom = "text", x = 0.4, y = 40, label = paste("r = ", r, ", p < .001"), size = 6) +
   theme(axis.text = element_text(size=20), axis.title = element_text(size=20)) + 
   labs(x = "Adaptation of random exploration", y = "Average reward")
-ggsave("dtp.png", device = "png", height = 4/0.8, width = 4/0.8)
+
 
 #ddifR for test data
 infotest$performance_av <- to_vec(for (i in 1:nrow(infotest)) infoS[infoS$subjectID == infotest$subjectID[i],]$performance_av[1])
@@ -668,65 +655,5 @@ cor.test(infotest[infotest$context == "smooth",]$ddifR, infotest[infotest$contex
 plot(infotest$ddifR, infotest$performance_av)
 cor.test(infotest[infotest$context == "smooth",]$ddifR, infotest[infotest$context == "smooth",]$performance_av)
 
-
-
-###
-###
-#analysis of questionaires
-###
-###
-
-setwd("C:/Users/fgoetmae/OneDrive - UGent/Documents/Projects/Context/data")
-setwd(paste("Exp", experiment))
-datadebr <- read.csv("datadebrief.csv")
-barplot(prop.table(table(datadebr[datadebr$difference %in% c("NO", "DIFF", "YES", "OTHER"),]$difference)))
-
-ggplot(infotest[infotest$prolificID %in% datadebr[datadebr$difference == "NO",]$prolificID,], aes(x = factor(context), y = difR, fill= context)) + 
-  ggdist::stat_halfeye(adjust = 0.5, justification = -.2, .width = 0, show.legend = FALSE) + 
-  scale_fill_manual(values=c("chartreuse", "brown1")) + theme_classic() + 
-  geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
-  geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE) + 
-  ggdist::stat_dots(side = "left", justification = 1.12, binwidth = 2, dotsize = 1, overflow = "compress", show.legend = FALSE) #+
-#geom_line(aes(group = subjectID)) 
-#ggsave("difR(context)_NO.png", device = "png", height = 5/0.8, width = 6/0.8)
-
-ggplot(infotest[infotest$prolificID %in% datadebr[datadebr$difference == "YES",]$prolificID,], aes(x = factor(context), y = difR, fill= context)) + 
-  ggdist::stat_halfeye(adjust = 0.5, justification = -.2, .width = 0, show.legend = FALSE) + 
-  scale_fill_manual(values=c("chartreuse", "brown1")) + theme_classic() + 
-  geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
-  geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE) + 
-  ggdist::stat_dots(side = "left", justification = 1.12, binwidth = 2, dotsize = 1, overflow = "compress", show.legend = FALSE) #+
-#geom_line(aes(group = subjectID)) 
-#ggsave("difR(context)_YES.png", device = "png", height = 5/0.8, width = 6/0.8)
-
-ggplot(infoS[infoS$subjectID %in% datadebr[datadebr$difference == "YES",]$prolificID,], aes(x = factor(context), y = logl, fill= context)) + 
-  ggdist::stat_halfeye(adjust = 0.5, justification = -.2, .width = 0, show.legend = FALSE) + 
-  scale_fill_manual(values=c("chartreuse", "brown1")) + theme_classic() + 
-  geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
-  geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE) + 
-  ggdist::stat_dots(side = "left", justification = 1.12, binwidth = 0.2, dotsize = 0.3, overflow = "compress", show.legend = FALSE) +
-  ylim(-0.6, 1.8)
-#ggsave("l(context)YES.png", device = "png", height = 5/0.8, width = 6/0.8)
-
-ggplot(infoS[infoS$subjectID %in% datadebr[datadebr$difference == "NO",]$prolificID,], aes(x = factor(context), y = logl, fill= context)) + 
-  ggdist::stat_halfeye(adjust = 0.5, justification = -.2, .width = 0, show.legend = FALSE) + 
-  scale_fill_manual(values=c("chartreuse", "brown1")) + theme_classic() + 
-  geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
-  geom_signif(comparisons = list(c("rough", "smooth")), map_signif_level=TRUE) + 
-  ggdist::stat_dots(side = "left", justification = 1.12, binwidth = 0.2, dotsize = 0.3, overflow = "compress", show.legend = FALSE) +
-  ylim(-0.6, 1.8)
-#ggsave("l(context)NO.png", device = "png", height = 5/0.8, width = 6/0.8)
-
-#dlogl
-infotest$debrief <- to_vec(for (i in 1:nrow(infotest)) datadebr[datadebr$prolificID == infotest$subjectID[i],]$difference.[2])
-plot(infotest$dlogl, infotest$debrief)
-ggplot(infotest, aes(x = factor(debrief), y = dlogl)) + 
-  ggdist::stat_halfeye(adjust = 0.5, justification = -.2, .width = 0, show.legend = FALSE) + 
-  geom_boxplot(width = 0.15, outlier.color = NA, alpha = 0.5, show.legend = FALSE) +
-  geom_point() + theme_classic()
-
-barplot(prop.table(table(infotest[infotest$debrief %in% c("NO", "DIFF", "YES", "OTHER"),]$debrief)))
-barplot(prop.table(table(infotest[infotest$debrief %in% c("NO", "DIFF", "YES", "OTHER") & infotest$lgroup == "yes",]$debrief)))
-barplot(prop.table(table(infotest[infotest$debrief %in% c("NO", "DIFF", "YES", "OTHER") & infotest$lgroup == "no",]$debrief)))
 
 
