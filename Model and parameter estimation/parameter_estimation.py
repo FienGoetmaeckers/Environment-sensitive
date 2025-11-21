@@ -131,7 +131,7 @@ def estimate_2env(W, L, nr_trials, nr_blocks, data):
     """
     
     #read in the condition and assign smoothness to the blocks
-    condition = int(data["assigned_condition"].values[0][1:-1])
+    condition = int(data["assigned_condition"].values[0])
     if (condition <2):
         smoothness_order = ["smooth", "rough"]
        
@@ -330,7 +330,7 @@ def NLL(W, L, nr_trials, l_fit, beta, tau, initial_opened, selected_choice, rewa
         #we need to change the format to a list of coordinates
         opened_cells2D = [[math.floor(value/W), value%W] for value in opened_cells]
         
-        first_observation = 2*average_reward[round_nr*nr_trials] - reward[round_nr*nr_trials]
+        first_observation = 2*float(average_reward[round_nr*nr_trials]) - float(reward[round_nr*nr_trials])
         observations = [first_observation]
         
         for trial_nr in range(0, nr_trials):
