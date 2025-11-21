@@ -14,7 +14,7 @@ nr_trials = 30
 W = L = 15
 #name of the file to read the data from
 exp = "Exp 3"
-data_name = "Fulldata"
+data_name = "dataF"
 """
 read in the data
 """
@@ -43,7 +43,7 @@ save the output
 
 #1 output file per model
 M1  =    [est[0], est[1], est[2], est[3]]
-condition = int(data_p["assigned_condition"].values[0][1:-1])
+condition = int(data_p["assigned_condition"].values[0])
 
 if (condition<2): #then S-R
 	resultsM1 = {"Participant": data_p["prolificID"].values[0], "l_fit_s": M1[0][0], "l_fit_r": M1[2][0], "beta_s": M1[0][1], 
@@ -63,4 +63,3 @@ with open("M1_" + date + ".csv", 'a') as f_object:
 	f_object.close()
 
 del data_p
-'''
