@@ -1,7 +1,7 @@
 # Environment-sensitive
 All scripts for the project "Environment-sensitive generalization and exploration strategies"
 
-*link to preprint coming soon
+preprint https://osf.io/preprints/psyarxiv/35gvn_v1 
 
 ## Behavioural experiment
 All needed code to run the online behavioural experiment described in the paper
